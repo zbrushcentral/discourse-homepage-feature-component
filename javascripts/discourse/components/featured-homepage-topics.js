@@ -48,6 +48,21 @@ export default Component.extend({
     }
   },
 
+  init() {
+    this._super(...arguments);
+    this._getBanner();
+    this._checkClass();
+  },
+
+  didInsertElement() {
+    this.carousel();
+    this.appEvents.on("page:changed", this, "_checkClass");
+  },
+
+  willDestroyElement() {
+    this.appEvents.off("page:changed", this, "_checkClass");
+    document.querySelector("body").classList.remove(FEATURED_CLASS);
+  },
   carousel() {
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const items = carousel.querySelectorAll(".carousel__item");
@@ -85,22 +100,6 @@ export default Component.extend({
       items[0].classList.add("carousel__item--selected");
       buttons[0].classList.add("carousel__button--selected");
     });
-  },
-
-  init() {
-    this._super(...arguments);
-    this._getBanner();
-    this._checkClass();
-  },
-
-  didInsertElement() {
-    this.carousel();
-    this.appEvents.on("page:changed", this, "_checkClass");
-  },
-
-  willDestroyElement() {
-    this.appEvents.off("page:changed", this, "_checkClass");
-    document.querySelector("body").classList.remove(FEATURED_CLASS);
   },
 
   @discourseComputed("router.currentRoute", "router.currentRouteName")
