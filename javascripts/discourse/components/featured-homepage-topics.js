@@ -49,11 +49,10 @@ export default Component.extend({
   },
 
   carousel() {
-    console.log("CAROUSEL");
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const items = carousel.querySelectorAll(".carousel__item");
       const buttonsHtml = Array.from(items, () => {
-        return `<span class="carousel__button" {{on "click" btnSelect}}></span>`;
+        return `<span class="carousel__button"></span>`;
       });
       carousel.insertAdjacentHTML(
         "beforeend",
@@ -64,11 +63,11 @@ export default Component.extend({
       `
       );
       console.log(buttonsHtml);
-      const btnSelect = (carousel, items) => {
-        console.log(carousel, items);
-        const buttons = carousel.querySelectorAll(".carousel__button");
-        console.log("btn");
-        buttons.forEach((button, i) => {
+
+      const buttons = carousel.querySelectorAll(".carousel__button");
+
+      buttons.forEach((button, i) => {
+        button.addEventListener("click", () => {
           // un-select all the items
           items.forEach((item) =>
             item.classList.remove("carousel__item--selected")
@@ -80,11 +79,11 @@ export default Component.extend({
           items[i].classList.add("carousel__item--selected");
           button.classList.add("carousel__button--selected");
         });
+      });
 
-        // Select the first item on page load
-        items[0].classList.add("carousel__item--selected");
-        buttons[0].classList.add("carousel__button--selected");
-      };
+      // Select the first item on page load
+      items[0].classList.add("carousel__item--selected");
+      buttons[0].classList.add("carousel__button--selected");
     });
   },
 
