@@ -7,9 +7,9 @@
             {{showTitle}}
             <div class="featured-topics">
               {{#each featuredTagTopics as |t|}}
-                <div class="featured-topic">
+                <div class="featured-topic carousel">
                   <div
-                    class="featured-topic-image"
+                    class="featured-topic-image carousel__item"
                     style={{html-safe
                       (concat "background-image: url(" t.image_url ")")
                     }}
@@ -20,7 +20,6 @@
                     ></a>
                   </div>
                   <h3>
-                    NAME:
                     {{topic-link t}}
                   </h3>
                 </div>
