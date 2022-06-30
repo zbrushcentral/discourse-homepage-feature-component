@@ -48,19 +48,12 @@ export default Component.extend({
     }
   },
 
-  init() {
-    this._super(...arguments);
-    this._getBanner();
-    this._checkClass();
-  },
-
-  didInsertElement() {
+  _carousel() {
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const items = carousel.querySelectorAll(".carousel__item");
       const buttonsHtml = Array.from(items, () => {
         return `<span class="carousel__button"></span>`;
       });
-
       carousel.insertAdjacentHTML(
         "beforeend",
         `
@@ -69,6 +62,7 @@ export default Component.extend({
       	</div>
       `
       );
+      console.log(buttonsHtml);
 
       const buttons = carousel.querySelectorAll(".carousel__button");
 
@@ -91,6 +85,16 @@ export default Component.extend({
       items[0].classList.add("carousel__item--selected");
       buttons[0].classList.add("carousel__button--selected");
     });
+  },
+
+  init() {
+    this._super(...arguments);
+    this._getBanner();
+    this._checkClass();
+    this._carousel();
+  },
+
+  didInsertElement() {
     this.appEvents.on("page:changed", this, "_checkClass");
   },
 
