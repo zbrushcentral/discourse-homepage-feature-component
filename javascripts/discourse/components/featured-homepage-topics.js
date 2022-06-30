@@ -55,8 +55,6 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    this.appEvents.on("page:changed", this, "_checkClass");
-
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const items = carousel.querySelectorAll(".carousel__item");
       const buttonsHtml = Array.from(items, () => {
@@ -93,6 +91,7 @@ export default Component.extend({
       items[0].classList.add("carousel__item--selected");
       buttons[0].classList.add("carousel__button--selected");
     });
+    this.appEvents.on("page:changed", this, "_checkClass");
   },
 
   willDestroyElement() {
