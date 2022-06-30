@@ -49,7 +49,6 @@ export default Component.extend({
   },
 
   carousel() {
-    console.log("TEST");
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const items = carousel.querySelectorAll(".carousel__item");
       const buttonsHtml = Array.from(items, () => {
@@ -92,11 +91,10 @@ export default Component.extend({
     this._super(...arguments);
     this._getBanner();
     this._checkClass();
-    this.carousel();
-    console.log("INIT!");
   },
 
   didInsertElement() {
+    this.carousel();
     this.appEvents.on("page:changed", this, "_checkClass");
   },
 
