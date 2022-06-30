@@ -7,9 +7,9 @@
             {{showTitle}}
             <div class="featured-topics">
               {{#each featuredTagTopics as |t|}}
-                <div class="featured-topic carousel">
+                <div class="carousel">
                   <div
-                    class="featured-topic-image carousel__item"
+                    class="carousel__item"
                     style={{html-safe
                       (concat "background-image: url(" t.image_url ")")
                     }}
@@ -19,9 +19,6 @@
                       href="/t/{{t.slug}}/{{t.id}}/{{t.last_read_post_number}}"
                     ></a>
                   </div>
-                  <h3>
-                    {{topic-link t}}
-                  </h3>
                 </div>
               {{/each}}
             </div>
