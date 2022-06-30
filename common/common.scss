@@ -130,11 +130,11 @@ html.homepage-featured-topics {
   font-weight: bold;
   font-size: 2em;
   color: #ffffff;
-  display: none;
+  display: block;
 }
 
 .carousel__item--selected {
-  display: block;
+  display: none;
 }
 
 .carousel__nav {
