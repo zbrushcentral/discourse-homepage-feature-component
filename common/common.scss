@@ -4,12 +4,12 @@ html.homepage-featured-topics {
   }
 }
 
-// .featured-topic-wrapper {
-//   margin-bottom: 3em;
-//   text-align: center;
-//   border-bottom: 1px solid $primary-low;
-//   position: relative;
-
+.featured-topic-wrapper {
+  margin-bottom: 3em;
+  text-align: center;
+  border-bottom: 1px solid $primary-low;
+  position: relative;
+}
 // .spinner {
 //   position: absolute;
 //   left: 0;
@@ -29,13 +29,11 @@ html.homepage-featured-topics {
 //   padding-bottom: 0.5em;
 //   margin-bottom: 1.5em;
 // }
-// // .featured-topics {
-// //   display: flex;
-// //   justify-content: center;
-// //   align-items: flex-start;
-// //   @media screen and (max-width: 600px) {
-// //     flex-wrap: wrap;
-// //   }
+.featured-topics {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 //   .featured-topic {
 //     // flex: 1 1 30%;
 //     // max-width: 500px;
