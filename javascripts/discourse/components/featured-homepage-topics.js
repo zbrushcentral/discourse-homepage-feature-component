@@ -49,7 +49,6 @@ export default Component.extend({
   },
 
   carousel() {
-
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const items = carousel.querySelectorAll(".carousel__item");
       const buttonsHtml = Array.from(items, () => {
@@ -63,7 +62,6 @@ export default Component.extend({
       	</div>
       `
       );
-      console.log(buttonsHtml);
 
       const buttons = carousel.querySelectorAll(".carousel__button");
 
@@ -95,13 +93,10 @@ export default Component.extend({
   },
 
   didRender() {
-    console.log("RUN!");
     this.carousel();
   },
   didInsertElement() {
     this.appEvents.on("page:changed", this, "_checkClass");
-    console.log("RUN!");
-    this.carousel();
   },
 
   willDestroyElement() {
@@ -136,16 +131,6 @@ export default Component.extend({
     }
 
     return showHere;
-  },
-
-  @discourseComputed()
-  showTitle() {
-    if (settings.show_title) {
-      const titleElement = document.createElement("h2");
-      titleElement.innerHTML =
-        I18n.t(themePrefix("featured_topic_title")) || settings.title_text;
-      return titleElement;
-    }
   },
 
   @discourseComputed()
