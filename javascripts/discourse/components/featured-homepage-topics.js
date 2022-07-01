@@ -49,6 +49,7 @@ export default Component.extend({
   },
 
   carousel() {
+
     document.querySelectorAll(".carousel").forEach((carousel) => {
       const items = carousel.querySelectorAll(".carousel__item");
       const buttonsHtml = Array.from(items, () => {
