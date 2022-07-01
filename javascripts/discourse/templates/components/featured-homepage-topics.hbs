@@ -1,29 +1,29 @@
 {{#if showFor}}
   {{#if showHere}}
     {{#if featuredTagTopics}}
-      <div class="featured-topic-wrapper">
-        {{showTitle}}
-        <div class="featured-topics">
-          {{#each featuredTagTopics as |t|}}
-            <div class="featured-topic carousel">
-              <div
-                class="featured-topic-image carousel__item"
-                style={{html-safe
-                  (concat "background-image: url(" t.image_url ")")
-                }}
-              >
-                {{! template-lint-disable no-invalid-link-text }}
-                {{!-- <a
+      {{! <div class="featured-topic-wrapper"> }}
+      {{showTitle}}
+      {{!-- <div class="featured-topics"> --}}
+        {{#each featuredTagTopics as |t|}}
+          <div class="carousel">
+            <div
+              class="carousel__item"
+              style={{html-safe
+                (concat "background-image: url(" t.image_url ")")
+              }}
+            >
+              {{! template-lint-disable no-invalid-link-text }}
+              {{!-- <a
                       href="/t/{{t.slug}}/{{t.id}}/{{t.last_read_post_number}}"
                     ></a> --}}
-              </div>
-              {{!-- <h3>
+            </div>
+            {{!-- <h3>
                     {{topic-link t}}
                   </h3> --}}
-            </div>
-          {{/each}}
-        </div>
+          {{!-- </div> --}}
+        {{/each}}
       </div>
+      {{! </div> }}
     {{/if}}
   {{/if}}
 {{/if}}
