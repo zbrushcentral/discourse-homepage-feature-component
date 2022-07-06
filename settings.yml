@@ -40,5 +40,5 @@ sort_by_created:
   description: Disable to sort by latest activity
 
 above_main_container:
-  default: false
+  default: true
   description: Advanced theme development&colon; this changes the plugin outlet for the component to "above main container"
